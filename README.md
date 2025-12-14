@@ -186,3 +186,17 @@ soc-lab/
 Anderson Rocha
 Blue Team / SOC Analyst (in training)
 Hands-on labs focused on SIEM, Linux, and defensive security
+## 📸 Evidence
+
+### Lab Overview
+![Lab Overview](evidence/lab_overview.png)
+
+### Splunk Running on Host 1
+![Splunk Running](evidence/splunk_running_host1.png)
+
+### Event Received in Splunk
+![Event Received](evidence/splunk_event_received.png)
+
+### Kali Connected (UF)
+![Kali UF](evidence/uf_connected_kali.png)
+

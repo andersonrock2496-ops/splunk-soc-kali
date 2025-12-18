@@ -1,23 +1,22 @@
-# LAB 02 – SSH Authentication Monitoring with Splunk
+# Lab 02 — Auth Monitoring (SSH Failed Password) com Splunk
 
-## Overview
-This lab demonstrates how to monitor Linux authentication events using Splunk.
-SSH authentication failures generated on a Kali Linux host were forwarded,
-indexed, and analyzed in Splunk.
+## Objetivo
+Monitorar e detectar tentativas de autenticação falhas via SSH utilizando logs do Linux (`/var/log/auth.log`) ingeridos no Splunk.
 
-## Architecture
-- Kali Linux (log source)
-- systemd-journald → rsyslog
-- Splunk Universal Forwarder
-- Splunk Enterprise (SIEM)
+## Ambiente
+- Kali Linux
+- Splunk Enterprise
+- Fonte de dados: `/var/log/auth.log`
 
-## Event Generation
-SSH failed login attempts were intentionally generated using invalid credentials.
+## Evidências
 
-## Detection Queries
+### 🔹 Eventos "Failed password" no Splunk
+![Splunk Failed Password](evidence/splunk_index.png)
 
+### 🔹 Contagem de falhas por host
+Busca SPL utilizada:
 ```spl
-index=* source="/var/log/auth.log" "Failed password"
 index=* source="/var/log/auth.log" "Failed password"
 | stats count by host
 | where count >= 3
+
